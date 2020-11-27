@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :visits, only: [:create]
+  resources :users, only: [] do
+    resources :page_visits, only: [:create]
   end
 end

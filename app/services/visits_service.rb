@@ -1,5 +1,5 @@
 class VisitsService
-  attr_accessors :user, :uri
+  attr_accessor :user, :uri
 
   def initialize(user, page_url)
     self.user = user

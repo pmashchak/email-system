@@ -1,6 +1,8 @@
 class PageVisitsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
-    visits_service = VisitsService.new(visit_params[:page_url])
+    visits_service = VisitsService.new(user, visit_params[:page_url])
 
     if visits_service.handle_visit!
       render status: :ok
@@ -12,10 +14,10 @@ class PageVisitsController < ApplicationController
   private
 
   def visit_params
-    params.permit(:user_id, :page_url)
+    params.permit(:email, :page_url)
   end
 
   def user
-    @user ||= User.find(visit_params[:user_id])
+    @user ||= User.find_by(email: visit_params[:email])
   end
 end

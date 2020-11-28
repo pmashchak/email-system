@@ -20,4 +20,6 @@ RSpec.describe User, type: :model do
       is_expected.not_to allow_value('user-name@').for(:email)
     end
   end
+
+  it { expect(subject.full_name).to eq("#{subject.first_name} #{subject.last_name}") }
 end

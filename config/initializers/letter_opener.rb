@@ -1,4 +1,3 @@
-p 'letter opener'
 LetterOpener.configure do |config|
   Rails.logger.info('Letter opener configuration')
   # To overrider the location for message storage.

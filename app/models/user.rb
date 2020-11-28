@@ -5,10 +5,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
 
-  def weekly_visits
-
-  end
-
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

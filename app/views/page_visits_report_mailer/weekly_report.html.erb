@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.full_name %></h1>
+    <p>
+      You have visited these websites last week:
+    </p>
+    <table>
+      <tr>
+        <th>Domain</th>
+        <th>Page</th>
+        <th>Date</th>
+      </tr>
+      <% @user.weekly_visits do |page_visit| %>
+        <tr>
+          <td><%= page_visit.host%></td>
+          <td><%= page_visit.path%></td>
+          <td><%= page_visit.created_at.to_date%></td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>

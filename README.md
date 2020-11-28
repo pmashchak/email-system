@@ -1,10 +1,12 @@
 # README
 
-User -> Folders -> Messages -> Recepients
 
-Controller Actions JSON
 
-User -> has_many :folders
-Folder -> has_many :messages
-Message ->
-Recipinet ->
+Run redis server
+`redis-server /usr/local/etc/redis.conf`
+
+Run resque queues
+`QUEUE=* rake resque:work`
+
+Run whenever scheduler
+`bundle exec whenever`

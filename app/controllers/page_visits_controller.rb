@@ -5,9 +5,9 @@ class PageVisitsController < ApplicationController
     visits_service = VisitsService.new(user, visit_params[:page_url])
 
     if visits_service.handle_visit!
-      render status: :ok
+      render json: {}, status: :ok
     else
-      render status: :server_error
+      render json: {}, status: :bad_request
     end
   end
 
@@ -18,6 +18,6 @@ class PageVisitsController < ApplicationController
   end
 
   def user
-    @user ||= User.find_by(email: visit_params[:email])
+    @user ||= User.find_by!(email: visit_params[:email])
   end
 end
